@@ -1,0 +1,17 @@
+﻿@page
+@using Abc.Pages.Extensions
+@model Soft.Areas.Quantity.Pages.Measures.CreateModel
+
+@{
+    Layout = "_Create";
+}
+
+    <body>
+        @Html.EditControlsFor(model => model.MeasureView.Id)
+        @Html.EditControlsFor(model => model.MeasureView.Code)
+        @Html.EditControlsFor(model => model.MeasureView.Name)
+        @Html.EditControlsFor(model => model.MeasureView.Definition)
+        @Html.EditControlsFor(model => model.MeasureView.ValidFrom)
+        @Html.EditControlsFor(model => model.MeasureView.ValidTo)
+    </body>
+           

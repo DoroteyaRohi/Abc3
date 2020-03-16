@@ -1,0 +1,15 @@
+﻿@page
+@using Abc.Pages.Extensions
+@model Soft.Areas.Quantity.Pages.Measures.DetailsModel
+
+@{
+    Layout = "_Details";
+}
+
+<body>
+    @Html.DisplayControlsFor(model => model.MeasureView.Code)
+    @Html.DisplayControlsFor(model => model.MeasureView.Name)
+    @Html.DisplayControlsFor(model => model.MeasureView.Definition)
+    @Html.DisplayControlsFor(model => model.MeasureView.ValidFrom)
+    @Html.DisplayControlsFor(model => model.MeasureView.ValidTo)
+</body>
