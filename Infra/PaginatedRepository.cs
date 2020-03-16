@@ -28,7 +28,7 @@ namespace Abc.Infra
             var pages = countTotalPages(count, pageSize);
 
             return pages;
-        }
+        } 
 
         internal int countTotalPages(int count, in int pageSize)
         {
