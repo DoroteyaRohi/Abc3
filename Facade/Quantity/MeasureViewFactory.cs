@@ -1,8 +1,5 @@
-﻿using Abc.Data.Quantity;
+﻿using Abc.Aids;
 using Abc.Domain.Quantity;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Abc.Facade.Quantity
 {
@@ -10,27 +7,31 @@ namespace Abc.Facade.Quantity
     {
         public static Measure Create(MeasureView v)
         {
-            var d = new MeasureData
-            {
-                Id = v.Id,
-                Name = v.Name,
-                Code = v.Code,
-                Definition = v.Definition,
-                ValidFrom = v.ValidFrom,
-                ValidTo = v.ValidTo
-            };
-            return new Measure(d);
+            var o = new Measure();
+            Copy.Members(v, o.Data);
+
+            //o.Data.Id = v.Id;             это все стало одним методом Members в классе Copy
+            //o.Data.Name = v.Name;
+            //o.Data.Code = v.Code;
+            //o.Data.Definition = v.Definition;
+            //o.Data.ValidFrom = v.ValidFrom;
+            //o.Data.ValidTo = v.ValidTo;
+
+            return o;
         }
 
         public static MeasureView Create(Measure o)
         {
             var v = new MeasureView();
-            v.Id = o.Data.Id;
-            v.Name = o.Data.Name;
-            v.Code = o.Data.Code;
-            v.Definition = o.Data.Definition;
-            v.ValidFrom = o.Data.ValidFrom;
-            v.ValidTo = o.Data.ValidTo;
+            Copy.Members(o.Data, v);
+
+            //v.Id = o.Data.Id;
+            //v.Name = o.Data.Name;
+            //v.Code = o.Data.Code;
+            //v.Definition = o.Data.Definition;
+            //v.ValidFrom = o.Data.ValidFrom;
+            //v.ValidTo = o.Data.ValidTo;
+
             return v;
         }
     }

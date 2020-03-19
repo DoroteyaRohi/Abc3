@@ -1,12 +1,10 @@
 ﻿using Abc.Data.Common;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using Abc.Tests;
 
-namespace Tests.Data.Common
+namespace Abc.Tests.Data.Common
 {
     [TestClass]
-    public class PeriodDataTests : AbstractClassTest<PeriodData, object>
+    public class PeriodDataTests : AbstractClassTests<PeriodData, object>
     {
         private class TestClass : PeriodData { }
 

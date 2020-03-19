@@ -1,20 +1,29 @@
 ﻿using System;
 using System.Globalization;
 
-namespace Abc.Aids {
-    public static class Decimals {
-        public static bool TryParse(string s, out decimal d) {
+namespace Abc.Aids 
+{
+    public static class Decimals 
+    {
+        public static bool TryParse(string s, out decimal d) 
+        {
             return decimal.TryParse(s, NumberStyles.Any, UseCulture.Invariant, out d);
         }
-        public static decimal Add(decimal x, decimal y) {
+
+        public static decimal Add(decimal x, decimal y) 
+        {
             try { return x + y; }
             catch { return decimal.MaxValue; }
         }
-        public static decimal Divide(decimal x, decimal y) {
+
+        public static decimal Divide(decimal x, decimal y) 
+        {
             try { return x / y; }
             catch { return decimal.MaxValue; }
         }
-        public static bool ToDecimal(object o, out decimal v) {
+
+        public static bool ToDecimal(object o, out decimal v) 
+        {
             v = decimal.Zero;
             var r = true;
             if (o is string str) return TryParse(str, out v);
@@ -30,39 +39,61 @@ namespace Abc.Aids {
             else if (o is ushort us) v = Convert.ToDecimal(us);
             else if (o is byte b) v = Convert.ToDecimal(b);
             else r = false;
+
             return r;
         }
-        public static decimal ToDecimal(object o) {
+
+        public static decimal ToDecimal(object o) 
+        {
             ToDecimal(o, out var d);
+
             return d;
         }
-        public static string ToString(decimal a) {
+
+        public static string ToString(decimal a) 
+        {
             return a.ToString(UseCulture.Invariant);
         }
-        public static decimal Subtract(decimal x, decimal y) {
+
+        public static decimal Subtract(decimal x, decimal y) 
+        {
             try { return x - y; }
             catch { return decimal.MaxValue; }
         }
-        public static bool IsGreater(decimal x, decimal y) {
+
+        public static bool IsGreater(decimal x, decimal y) 
+        {
             return x.CompareTo(y) > 0;
         }
-        public static bool IsLess(decimal x, decimal y) {
+
+        public static bool IsLess(decimal x, decimal y) 
+        {
             return x.CompareTo(y) < 0;
         }
-        public static bool IsEqual(decimal x, decimal y) {
+
+        public static bool IsEqual(decimal x, decimal y) 
+        {
             return x.CompareTo(y) == 0;
         }
-        public static decimal Multiply(decimal x, decimal y) {
+
+        public static decimal Multiply(decimal x, decimal y) 
+        {
             try { return x * y; }
             catch { return decimal.MaxValue; }
         }
-        public static decimal Inverse(decimal x) {
+
+        public static decimal Inverse(decimal x) 
+        {
             return Subtract(decimal.Zero, x);
         }
-        public static decimal Reciprocal(decimal x) {
+
+        public static decimal Reciprocal(decimal x)
+        {
             return Divide(decimal.One, x);
         }
-        public static decimal Square(decimal x) {
+        public static decimal Square(decimal x) 
+
+        {
             return Multiply(x, x);
         }
     }

@@ -53,6 +53,7 @@ namespace Abc.Infra
             var param = Expression.Parameter(typeof(TData));
             var property = Expression.Property(param, p); 
             var body = Expression.Convert(property, typeof(object));//конверует первое во второе 
+
             return Expression.Lambda<Func<TData, object>>(body, param);
         }
 

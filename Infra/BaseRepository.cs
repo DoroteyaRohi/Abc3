@@ -1,7 +1,6 @@
 ﻿using Abc.Data.Common;
 using Abc.Domain.Common;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -28,14 +27,12 @@ namespace Abc.Infra
 
         internal List<TDomain> toDomainObjectsList(List<TData> set) 
             => set.Select(toDomainObject).ToList();
-        
 
         protected internal abstract TDomain toDomainObject(TData periodData);
 
         internal async Task<List<TData>> runSqlQueryAsync(IQueryable<TData> query)
             =>  await query.AsNoTracking().ToListAsync();
         
-
         protected internal  virtual IQueryable<TData> createSqlQuery()
         {
             var query = from s in dbSet select s;

@@ -1,12 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
 using Soft.Data;
 using Microsoft.Extensions.Configuration;
@@ -38,6 +32,7 @@ namespace Soft
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddScoped<IMeasuresRepository, MeasuresRepository>();
+            services.AddScoped<IUnitsRepository, UnitsRepository>();
             services.AddRazorPages();
         }
 
@@ -56,8 +51,8 @@ namespace Soft
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
-            app.UseStaticFiles();
+            app.UseHttpsRedirection(); 
+            app.UseStaticFiles(); 
 
             app.UseRouting();
 

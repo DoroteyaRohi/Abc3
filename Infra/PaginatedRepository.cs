@@ -3,10 +3,7 @@ using Abc.Domain;
 using Abc.Domain.Common;
 using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-
 namespace Abc.Infra
 {
     public abstract class PaginatedRepository<TDomain, TData> : FilteredRepository<TDomain, TData>, IPaging 
@@ -31,31 +28,22 @@ namespace Abc.Infra
         } 
 
         internal int countTotalPages(int count, in int pageSize)
-        {
-            return (int)Math.Ceiling(count / (double)pageSize);
-        }
+            =>(int)Math.Ceiling(count / (double)pageSize);
         
-        internal object getItemsCount()
-        {
-            var query = base.createSqlQuery();
-
-            return query.CountAsync().Result;
-        }
+        
+        internal int getItemsCount() => base.createSqlQuery().CountAsync().Result;
 
         protected internal override IQueryable<TData> createSqlQuery()
-        {
-            var query = base.createSqlQuery();
-            query = addSkipAndTake(query);
-              
-            return query;
-        }
+            =>addSkipAndTake(base.createSqlQuery());
+        
 
         private IQueryable<TData> addSkipAndTake(IQueryable<TData> query)
         {
-            var q = query.Skip(
-                    (PageIndex - 1) * PageSize)
-                .Take(PageSize);
-            return q;
+            if (PageIndex < 1) return query;
+
+            return query
+                    .Skip((PageIndex - 1) * PageSize)
+                    .Take(PageSize);
         }
     }
 }

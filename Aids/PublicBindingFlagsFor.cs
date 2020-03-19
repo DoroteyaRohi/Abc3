@@ -1,8 +1,9 @@
 ﻿using System.Reflection;
 
-namespace Abc.Aids {
-
-    public static class PublicBindingFlagsFor {
+namespace Abc.Aids 
+{
+    public static class PublicBindingFlagsFor 
+    {
         private const BindingFlags p = BindingFlags.Public;
         private const BindingFlags i = BindingFlags.Instance;
         private const BindingFlags s = BindingFlags.Static;
@@ -12,7 +13,6 @@ namespace Abc.Aids {
         public const BindingFlags StaticMembers = p | s;
         public const BindingFlags DeclaredMembers = p | d | i | s;
     }
-
 }
 
 

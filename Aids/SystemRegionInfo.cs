@@ -2,22 +2,28 @@
 using System.Globalization;
 using System.Linq;
 
-namespace Abc.Aids {
+namespace Abc.Aids 
+{
 
-    public static class SystemRegionInfo {
+    public static class SystemRegionInfo 
+    {
 
-        public static bool IsCountry(RegionInfo r) {
+        public static bool IsCountry(RegionInfo r) 
+        {
             return Safe.Run(() => SystemString.StartsWithLetter(r.ThreeLetterISORegionName), false);
         }
 
-        public static List<RegionInfo> GetRegionsList() {
-            return Safe.Run(() => {
+        public static List<RegionInfo> GetRegionsList() 
+        {
+            return Safe.Run(() => 
+            {
                 var cultures = SystemCultureInfo.GetSpecificCultures();
                 var regions = SystemEnumerable.Convert(cultures, SystemCultureInfo.ToRegionInfo);
                 regions = SystemEnumerable.Distinct(regions);
                 var list = regions.ToList();
                 removeNotCountries(list);
                 regions = SystemEnumerable.OrderBy(list.ToArray(), p => p.EnglishName);
+
                 return regions.ToList();
             }, new List<RegionInfo>());
         }

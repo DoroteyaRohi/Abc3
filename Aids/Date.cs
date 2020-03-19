@@ -1,10 +1,11 @@
 ﻿using System;
 
-namespace Abc.Aids {
-
+namespace Abc.Aids 
+{
     public static class Date {
 
-        public static DateTime? SetNullIfMaxOrMin(DateTime? d) {
+        public static DateTime? SetNullIfMaxOrMin(DateTime? d) 
+        {
             if (d is null) return null;
             var dt = (DateTime) d;
 
@@ -13,7 +14,5 @@ namespace Abc.Aids {
 
             return dt;
         }
-
     }
-
 }

@@ -1,4 +1,4 @@
-﻿namespace Abc.Domain
+﻿namespace Abc.Domain.Common
 {
     public interface ISorting
     {

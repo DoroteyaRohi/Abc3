@@ -12,10 +12,11 @@
     <h4>Details</h4>
     <hr />
     <dl class="row">
-        @RenderBody();
+        @RenderBody()
     </dl>
 </div>
 <div>
     <a asp-page="./Edit" asp-route-id="@itemId">Edit</a> |
     <a asp-page="./Index">Back to List</a>
+    @RenderSection("Details")
 </div>

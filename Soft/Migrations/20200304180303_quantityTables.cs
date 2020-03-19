@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Abc.Soft.Migrations
+namespace Soft.Migrations
 {
     public partial class quantityTables : Migration
     {

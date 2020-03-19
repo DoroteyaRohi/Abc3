@@ -2,8 +2,10 @@
 using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace Abc.Pages.Extensions {
-    public static class SearchControlsForHtmlExtension {
+namespace Abc.Pages.Extensions 
+{
+    public static class SearchControlsForHtmlExtension 
+    {
         internal const string backToFullList = "Back to full list";
 
         public static IHtmlContent SearchControlsFor(
